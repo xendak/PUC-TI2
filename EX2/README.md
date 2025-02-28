@@ -1,7 +1,7 @@
 # EX2 - Integração PostgreSQL
 
 ## Instruçoes
-assumindo instruçoes utilizando o flake.nix e direnv
+assumindo instruçoes utilizando o flake.nix e direnv (usuario "drops")
 1. executar o pgstart.sh para inicializar o database.
     - criar um novo database usando `psql --host=localhost -c 'create database ti2'`
     - ou usar o padrao postgres e mudar no arquivo dao.java e na linha abaixo --dbname=postgres
