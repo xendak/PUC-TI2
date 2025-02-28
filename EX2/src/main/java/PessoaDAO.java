@@ -18,7 +18,7 @@ public class PessoaDAO extends DAO {
     public boolean insert(Pessoa pessoa) {
         boolean status = false;
         try {  
-            Statement st = connect.createStatement();
+            Statement st = connection.createStatement();
             String sql = "INSERT INTO pessoa (cpf, nome, idade, profissao) "
                 + "VALUES ("+pessoa.getCpf()+ ", '" + pessoa.getNome() + "', '"  
                 + pessoa.getIdade() + "', '" + pessoa.getProfissao() + "');";
@@ -36,7 +36,7 @@ public class PessoaDAO extends DAO {
         Pessoa pessoa = null;
 
         try {
-            Statement st = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT * FROM pessoa WHERE id=" + cpf;
             System.out.println(sql);
             ResultSet rs = st.executeQuery(sql);	
@@ -80,7 +80,7 @@ public class PessoaDAO extends DAO {
         List<Pessoa> pessoas = new ArrayList<Pessoa>();
 
         try {
-            Statement st = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT * FROM pessoa" + ((orderBy.trim().length() == 0) ? "" : (" ORDER BY " + orderBy));
             System.out.println(sql);
             ResultSet rs = st.executeQuery(sql);	           
@@ -98,7 +98,7 @@ public class PessoaDAO extends DAO {
     public boolean update(Pessoa pessoa) {
         boolean status = false;
         try {  
-            Statement st = connect.createStatement();
+            Statement st = connection.createStatement();
             String sql = "UPDATE pessoa SET nome = '" + pessoa.getNome() + "', idade = '"  
                 + pessoa.getIdade() + "', profissao = '" + pessoa.getProfissao() + "'"
                 + " WHERE cpf = " + pessoa.getCpf();
@@ -115,7 +115,7 @@ public class PessoaDAO extends DAO {
     public boolean delete(int codigo) {
         boolean status = false;
         try {  
-            Statement st = connect.createStatement();
+            Statement st = connection.createStatement();
             String sql = "DELETE FROM pessoa WHERE cpf = " + cpf;
             System.out.println(sql);
             st.executeUpdate(sql);
@@ -132,7 +132,7 @@ public class PessoaDAO extends DAO {
         boolean resp = false;
 
         try {
-            Statement st = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
             String sql = "SELECT * FROM pessoa WHERE nome LIKE '" + nome + "' AND cpf LIKE '" + cpf  + "'";
             System.out.println(sql);
             ResultSet rs = st.executeQuery(sql);
