@@ -112,7 +112,7 @@ public class PessoaDAO extends DAO {
         return status;
     }
 
-    public boolean delete(int codigo) {
+    public boolean delete(int cpf) {
         boolean status = false;
         try {  
             Statement st = connection.createStatement();
