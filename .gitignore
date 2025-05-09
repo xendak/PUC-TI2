@@ -3,4 +3,11 @@
 .nix-shell/
 nix-db/
 
+*/.settings
+*/target
+*/.classpath
+*/.project
+**/*.class
+*.class
+
 .envrc

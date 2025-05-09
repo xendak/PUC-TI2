@@ -1,11 +1,21 @@
 # Exercício 4 - Banco de Dados Azure e IA
+## Estrutura de Projeto
+📂 projeto/
+├── 📄 readme.md                     # informaçoes gerais
+├── 📄 document.pdf                  # PDF de entrada
+├── 📄 PDFProcessor.java             # Código para AI-Vision
+├── 📄 portal_azure.png              # imagem de acesso
+├── 📄 database_select_query.png     # imagem de provando uso do database no azure.
+├── 📄 ai-vision.png                 # imagem de acesso para as chaves de API do AI-Vision
+└── 📄 resultado.json                # Saída gerada
+
 
 ## Parte 1: Conexão com Azure
 
 ### 1. Introdução aos Serviços Azure
 Utilizando os serviços de banco de dados da Microsoft Azure, vide confirmaçao:
-![Portal Azure](./azure-portal.png)  
-*Captura de tela do portal Azure com os recursos provisionados*
+
+![Portal Azure](portal_azure.png)  
 
 ### 2. Criação do Banco de Dados
 Criamos um banco de dados chamado `ex4` dentro de nossa instância `ti2-ex4` com a seguinte configuração:
@@ -69,12 +79,44 @@ GROUP BY w.wallet_name;
 
 Consulta no Banco
 Resultado da consulta SELECT mostrando os dados inseridos
-![SQL Connection](./database_select_query.png)  
-*Captura de tela do vscode utilizando extensao PostgresSQL*
+
+![SQL Connection](database_select_query.png)  
 
 
 ## Parte 2: Utilização do Sistema de IA do Azure
 
 ### 1. Integração com Serviços Cognitivos
+No Portal Azure:
+Crie um recurso "Document Intelligence" (antigo Form Recognizer)
+Anote Endpoint e Chave de API nas configurações conforme informadas na pagina de recurso. vide imagem
+![AI-Vision Intelligent Documents API](ai-vision.png)  
 
-### 2. Machine Learning
+  
+### 2. Definir credenciais localmente:
+```bash
+# Linux/macOS (adicionar ao ~/.bashrc ou ~/.zshrc para persistência)
+export AZURE_ENDPOINT="https://<seu-endpoint>.cognitiveservices.azure.com/"
+export AZURE_API_KEY="sua-chave-aqui"
+
+# Windows (persistente via interface gráfica)
+setx AZURE_ENDPOINT "https://<seu-endpoint>.cognitiveservices.azure.com/"
+setx AZURE_API_KEY "sua-chave-aqui"
+```
+
+### 3. Executar o programa.
+
+Utitilize o javac e java, para compilar e rodar o programa.
+```sh
+javac PDFProcessor.java
+java PDFProcessor
+```
+
+### Códigos de Erro Comuns
+| Código | Significado                           | Ação Recomendada                  |
+|--------|---------------------------------------|-----------------------------------|
+| 202    | Análise iniciada com sucesso          | Aguardar processamento            |
+| 401    | Chave API inválida/inexistente        | Verificar variáveis de ambiente   |
+| 429    | Limite de requisições excedido        | Reduzir frequência de chamadas    |
+| 500    | Erro interno do servidor              | Tentar novamente mais tarde       |
+
+O resultado do programa obtido de resposta do AI-Vision ficará salvo em resultado.json
