@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS wallet_items (
     notes TEXT
 );
 
+-- Adicionar algumas linhas nas tabelas
 INSERT INTO persons (full_name) VALUES ('John Hen');
 
 INSERT INTO wallets (wallet_name, person_id)
@@ -62,6 +63,8 @@ VALUES
 (1, 'Spotify', 'service', 16.99, 1, '2023-10-01'),
 (1, 'Apple', 'product', 0.75, 3, '2023-10-05');
 
+
+-- Query das tabelas
 SELECT * from persons;
 SELECT * from wallets;
 SELECT * from wallet_items;
