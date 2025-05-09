@@ -1,0 +1,6 @@
+.direnv/
+.git/
+.nix-shell/
+nix-db/
+
+.envrc
