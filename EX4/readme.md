@@ -81,7 +81,11 @@ GROUP BY w.wallet_name;
 Consulta no Banco
 Resultado da consulta SELECT mostrando os dados inseridos
 
-![SQL Connection](database_select_query.png)  
+![SQL Connection](terminal_select_query.png)
+
+ou utilizando a extensao PostgreSQL no vscode(e derivados).
+![SQL Connection2](database_select_query.png)  
+
 
 
 ## Parte 2: Utilização do Sistema de IA do Azure
