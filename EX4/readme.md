@@ -1,5 +1,6 @@
 # Exercício 4 - Banco de Dados Azure e IA
 ## Estrutura de Projeto
+```
 📂 projeto/
 ├── 📄 readme.md                     # informaçoes gerais
 ├── 📄 document.pdf                  # PDF de entrada
@@ -8,7 +9,7 @@
 ├── 📄 database_select_query.png     # imagem de provando uso do database no azure.
 ├── 📄 ai-vision.png                 # imagem de acesso para as chaves de API do AI-Vision
 └── 📄 resultado.json                # Saída gerada
-
+```
 
 ## Parte 1: Conexão com Azure
 
