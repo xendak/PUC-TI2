@@ -1,4 +1,4 @@
-# Exercício 4 - Banco de Dados Azure e IA
+# Exercício 4 - Banco de Dados Azure e Serviços Cognitivos
 ## Estrutura de Projeto
 ```
 📂 projeto/
@@ -14,12 +14,12 @@
 ## Parte 1: Conexão com Azure
 
 ### 1. Introdução aos Serviços Azure
-Utilizando os serviços de banco de dados da Microsoft Azure, vide confirmaçao:
+Utilizando os serviços de banco de dados da Microsoft Azure, vide confirmação:
 
 ![Portal Azure](portal_azure.png)  
 
 ### 2. Criação do Banco de Dados
-Criamos um banco de dados chamado `ex4` dentro de nossa instância `ti2-ex4` com a seguinte configuração:
+Cria-se um banco de dados chamado `ex4` dentro da instância `ti2-ex4` com a seguinte configuração:
 - Tipo de servidor: PostgreSQL
 - Conexao: Básico
 - Região: Brazil South
@@ -80,8 +80,6 @@ GROUP BY w.wallet_name;
 ```
 
 ### 4. Prova de Conexão Bem-sucedida
-
-Consulta no Banco
 Resultado da consulta SELECT mostrando os dados inseridos
 
 ![SQL Connection](terminal_select_query.png)
@@ -89,18 +87,17 @@ Resultado da consulta SELECT mostrando os dados inseridos
 ou utilizando a extensao PostgreSQL no vscode(e derivados).
 ![SQL Connection2](database_select_query.png)  
 
-
-
 ## Parte 2: Utilização do Sistema de IA do Azure
 
 ### 1. Integração com Serviços Cognitivos
 No Portal Azure:
-Crie um recurso "Document Intelligence" (antigo Form Recognizer)
-Anote Endpoint e Chave de API nas configurações conforme informadas na pagina de recurso. vide imagem
+ - Crie um recurso "Document Intelligence" (antigo Form Recognizer)
+ - Anote Endpoint e Chave de API nas configurações conforme informadas na pagina de recurso (vide imagem)
 ![AI-Vision Intelligent Documents API](ai-vision.png)  
 
   
 ### 2. Definir credenciais localmente:
+
 ```bash
 # Linux/macOS (adicionar ao ~/.bashrc ou ~/.zshrc para persistência)
 export AZURE_ENDPOINT="https://<seu-endpoint>.cognitiveservices.azure.com/"
@@ -112,8 +109,9 @@ setx AZURE_API_KEY "sua-chave-aqui"
 ```
 
 ### 3. Executar o programa.
-
-Utitilize o javac e java, para compilar e rodar o programa.
+ - O resultado do programa obtido de resposta do AI-Vision ficará salvo em resultado.json
+ - Utitilize o javac e java, para compilar e rodar o programa.
+ - Para referência de erros, consulte a tabela abaixo.
 ```sh
 javac PDFProcessor.java
 java PDFProcessor
@@ -127,4 +125,4 @@ java PDFProcessor
 | 429    | Limite de requisições excedido        | Reduzir frequência de chamadas    |
 | 500    | Erro interno do servidor              | Tentar novamente mais tarde       |
 
-O resultado do programa obtido de resposta do AI-Vision ficará salvo em resultado.json
+
