@@ -1,7 +1,7 @@
 # Exercício 4 - Banco de Dados Azure e Serviços Cognitivos
 ## Estrutura de Projeto
 ```
-📂 projeto/
+📂 ex4/
 ├── 📄 readme.md                     # informaçoes gerais
 ├── 📄 document.pdf                  # PDF de entrada
 ├── 📄 PDFProcessor.java             # Código para AI-Vision
